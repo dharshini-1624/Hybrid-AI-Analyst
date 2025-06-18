@@ -320,5 +320,3 @@ MIT License - see LICENSE file for details
 ## Contact
 
 For questions or support, please open an issue in the repository.
-
-> **Note:** If you are submitting this project to GitHub, it is recommended to add a `.gitignore` file (for Python: venv, __pycache__, .env, etc.) and a `LICENSE` file (MIT License is suggested). 
