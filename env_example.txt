@@ -1,0 +1,10 @@
+# Google Gemini API Key
+# Get your API key from: https://makersuite.google.com/app/apikey
+GOOGLE_API_KEY=your_google_api_key_here
+
+# ChromaDB settings
+CHROMA_PERSIST_DIRECTORY=./chroma_db
+
+# Server settings
+HOST=0.0.0.0
+PORT=8000 
