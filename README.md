@@ -7,7 +7,7 @@
 The Hybrid AI Analyst is a sophisticated startup vetting system that combines qualitative and quantitative analysis to generate comprehensive investment recommendations. Built for venture capital firms and investment professionals, this system processes both unstructured text data (company memos) and structured financial data (CSV files) to provide holistic startup evaluations.
 
 ## 📽️ Demo Video
-[![Watch the demo](assets/AI Analyst Demo Thumb Nail.png)](https://www.loom.com/share/abc265d0c021466cbcadd81347f2bf2c?sid=2bdb4a07-1821-4cca-9f77-695401678855)
+[![Watch the demo](assets/Hybrid AI Analyst Demo Thumbnail.png)](https://www.loom.com/share/abc265d0c021466cbcadd81347f2bf2c?sid=2bdb4a07-1821-4cca-9f77-695401678855)
 
 ### Key Features
 
