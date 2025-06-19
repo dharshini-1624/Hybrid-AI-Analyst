@@ -6,6 +6,10 @@
 
 The Hybrid AI Analyst is a sophisticated startup vetting system that combines qualitative and quantitative analysis to generate comprehensive investment recommendations. Built for venture capital firms and investment professionals, this system processes both unstructured text data (company memos) and structured financial data (CSV files) to provide holistic startup evaluations.
 
+## 📽️ Demo Video
+
+[![Watch Demo](https://cdn.loom.com/sessions/thumbnails/abc265d0c021466cbcadd81347f2bf2c-with-play.gif)](https://www.loom.com/share/abc265d0c021466cbcadd81347f2bf2c?sid=a32b5cec-214e-4b28-bf2b-1b5495d78c33)
+
 ### Key Features
 
 - **Dual Analysis Pipeline**: Parallel processing of qualitative (RAG-based) and quantitative (data analysis) insights
@@ -317,8 +321,3 @@ curl.exe -X POST "http://localhost:8000/vet_startup" -F "memo_file=@sample_data/
 
 MIT License - see LICENSE file for details
 
-## Contact
-
-For questions or support, please open an issue in the repository.
-
-> **Note:** If you are submitting this project to GitHub, it is recommended to add a `.gitignore` file (for Python: venv, __pycache__, .env, etc.) and a `LICENSE` file (MIT License is suggested). 
