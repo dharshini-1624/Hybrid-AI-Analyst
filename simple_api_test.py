@@ -1,24 +1,21 @@
 #!/usr/bin/env python3
-"""
-Simple API test - no dependencies on other test files
-"""
-
+# Simple API test - no dependencies on other test files
 import requests
 import json
 
 def test_api():
-    """Test the API endpoint directly"""
+    # Test the API endpoint directly
     
     url = "http://localhost:8000/vet_startup"
     
-    # Sample data files
+    # Sampling data files
     files = {
         'memo_file': ('company_memo.txt', open('sample_data/company_memo.txt', 'rb'), 'text/plain'),
         'financial_data': ('financial_data.csv', open('sample_data/financial_data.csv', 'rb'), 'text/csv')
     }
     
     
-    print("🚀 Testing API endpoint directly...")
+    print(" Testing API endpoint directly...")
     print(f"URL: {url}")
     print("=" * 60)
     

@@ -1,21 +1,17 @@
 #!/usr/bin/env python3
-"""
-Client example for the Hybrid AI Analyst API.
-This script demonstrates how to use the /vet_startup endpoint.
-"""
-
+# Client example for the Hybrid AI Analyst API- demonstrates how to use the /vet_startup endpoint.
 import requests
 import json
 import os
 from pathlib import Path
 
 def test_api_endpoint():
-    """Test the /vet_startup API endpoint with sample data."""
+    # Testing the /vet_startup API endpoint with sample data."""
     
     # API endpoint
     url = "http://localhost:8000/vet_startup"
     
-    # Sample data files
+    # Sampling data files
     memo_file = "sample_data/company_memo.txt"
     csv_file = "sample_data/financial_data.csv"
     
@@ -81,7 +77,7 @@ def test_api_endpoint():
         return False
 
 def test_health_endpoint():
-    """Testing the health check endpoint."""
+    # Testing the health check endpoint
     
     try:
         response = requests.get("http://localhost:8000/health")
@@ -96,7 +92,6 @@ def test_health_endpoint():
         return False
 
 def main():
-    """Main function."""
     
     print(" Hybrid AI Analyst - API Client Example")
     print("=" * 50)

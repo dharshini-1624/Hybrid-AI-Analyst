@@ -6,34 +6,23 @@ import os
 from datetime import datetime
 
 class QuantitativeAnalyzer:
-    """
-    Quantitative analysis pipeline for processing structured financial data.
-    Calculates key metrics like Month-over-Month growth, total revenue,
-    and other financial indicators to assess startup performance.
-    """
     
     def __init__(self):
-        """Initialize the quantitative analyzer"""
+        # Initializing the quantitative analyzer
         pass
     
     async def analyze_financial_data(self, csv_path: str) -> str:
-        """
-        Analyze financial data from CSV file and generate quantitative summary.
         
-        Args:
-            csv_path: Path to the CSV file containing financial data
-            
-        Returns:
-            Quantitative summary of financial performance
-        """
+        # Analyzing financial data from CSV file and generate quantitative summary
+       
         try:
-            # Read and validate CSV data
+            # Reading and validating CSV data
             df = await self._load_and_validate_data(csv_path)
             
-            # Calculate key metrics
+            # Calculating key metrics
             metrics = await self._calculate_metrics(df)
             
-            # Generate quantitative summary
+            # Generating quantitative summary
             summary = await self._generate_quantitative_summary(metrics)
             
             return summary
@@ -42,15 +31,9 @@ class QuantitativeAnalyzer:
             raise Exception(f"Quantitative analysis failed: {str(e)}")
     
     async def _load_and_validate_data(self, csv_path: str) -> pd.DataFrame:
-        """
-        Load and validate CSV data.
         
-        Args:
-            csv_path: Path to CSV file
-            
-        Returns:
-            Validated pandas DataFrame
-        """
+        # Loading and validating CSV data.
+        
         try:
             df = pd.read_csv(csv_path)
             
@@ -89,15 +72,9 @@ class QuantitativeAnalyzer:
             raise ValueError(f"Failed to load CSV data: {str(e)}")
     
     async def _calculate_metrics(self, df: pd.DataFrame) -> Dict[str, Any]:
-        """
-        Calculate key financial metrics.
         
-        Args:
-            df: DataFrame with financial data
-            
-        Returns:
-            Dictionary containing calculated metrics
-        """
+        # Calculating key financial metrics.
+        
         metrics = {}
         
         # Basic metrics
@@ -141,15 +118,9 @@ class QuantitativeAnalyzer:
         return metrics
     
     async def _generate_quantitative_summary(self, metrics: Dict[str, Any]) -> str:
-        """
-        Generate a quantitative summary based on calculated metrics.
         
-        Args:
-            metrics: Dictionary of calculated financial metrics
-            
-        Returns:
-            Quantitative summary string (one sentence as required by assignment)
-        """
+        # Generating a quantitative summary based on calculated metrics
+        
         # Revenue overview
         total_rev = metrics['total_revenue']
         
@@ -173,7 +144,7 @@ class QuantitativeAnalyzer:
         return summary
     
     async def get_status(self) -> Dict[str, Any]:
-        """Get the status of the quantitative analyzer"""
+        # Get the status of the quantitative analyzer
         return {
             "status": "operational",
             "data_processing": "pandas",

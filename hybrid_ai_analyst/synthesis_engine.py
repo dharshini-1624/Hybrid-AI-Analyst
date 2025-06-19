@@ -7,13 +7,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class SynthesisEngine:
-    """
-    Synthesis engine that combines qualitative and quantitative analysis
-    to generate final investment recommendations using LLM reasoning.
-    """
     
     def __init__(self):
-        """Initialize the synthesis engine with LLM"""
+        # Initializing the synthesis engine with LLM
         # Initializing Gemini API 
         api_key = os.getenv("GOOGLE_API_KEY")
         self.use_llm = api_key and api_key != "your_google_api_key_here"
@@ -31,16 +27,9 @@ class SynthesisEngine:
         qualitative_summary: str, 
         quantitative_summary: str
     ) -> Dict[str, str]:
-        """
-        Synthesize qualitative and quantitative insights into final investment recommendation.
         
-        Args:
-            qualitative_summary: Summary from qualitative analysis
-            quantitative_summary: Summary from quantitative analysis
-            
-        Returns:
-            Dictionary with decision and justification
-        """
+        # Synthesizing qualitative and quantitative insights into final investment recommendation
+        
         try:
             if self.use_llm:
                 print("LLM mode: Using Gemini for synthesis")
@@ -70,16 +59,9 @@ class SynthesisEngine:
             return self._fallback_synthesis(qualitative_summary, quantitative_summary)
     
     def _create_synthesis_prompt(self, qualitative_summary: str, quantitative_summary: str) -> str:
-        """
-        Create the synthesis prompt for the LLM.
         
-        Args:
-            qualitative_summary: Qualitative analysis summary
-            quantitative_summary: Quantitative analysis summary
-            
-        Returns:
-            Formatted prompt for LLM
-        """
+        # Creating the synthesis prompt for the LLM.
+        
         prompt = f"""
         You are an experienced venture capitalist. Given the following qualitative and quantitative summaries, provide a final investment recommendation. State whether you would 'Invest', 'Pass', or 'Monitor', and provide a 2-3 sentence justification for your decision.
         
@@ -99,15 +81,9 @@ class SynthesisEngine:
         return prompt
     
     def _parse_recommendation_response(self, response_text: str) -> Dict[str, str]:
-        """
-        Parse the LLM response to extract decision and justification.
+    
+        # Parse the LLM response to extract decision and justification.
         
-        Args:
-            response_text: Raw response from LLM
-            
-        Returns:
-            Dictionary with decision and justification
-        """
         try:
             # Extracting decision
             decision = None
@@ -147,16 +123,9 @@ class SynthesisEngine:
             }
     
     def _fallback_synthesis(self, qualitative_summary: str, quantitative_summary: str) -> Dict[str, str]:
-        """
-        Fallback synthesis method when LLM is unavailable.
         
-        Args:
-            qualitative_summary: Qualitative analysis summary
-            quantitative_summary: Quantitative analysis summary
-            
-        Returns:
-            Rule-based recommendation
-        """
+        #Fallback synthesis method when LLM is unavailable.
+        
         # Simple rule-based decision making
         decision = "Monitor"
         justification_parts = []
@@ -198,7 +167,7 @@ class SynthesisEngine:
         }
     
     async def get_status(self) -> Dict[str, Any]:
-        """Get the status of the synthesis engine"""
+        # Get the status of the synthesis engine
         return {
             "status": "operational",
             "llm": "Google Gemini Pro" if self.use_llm else "Fallback mode (no API key)",

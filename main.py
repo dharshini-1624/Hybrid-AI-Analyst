@@ -29,11 +29,9 @@ async def vet_startup(
     memo_file: UploadFile = File(..., description="Text file containing company memo or article"),
     financial_data: UploadFile = File(..., description="CSV file containing financial data")
 ):
-    """
-    Analyzing a startup using both qualitative (text memo) and quantitative (financial data) analysis.
     
-    Returns a comprehensive investment recommendation based on hybrid AI analysis.
-    """
+    # Analyzing a startup using both qualitative (text memo) and quantitative (financial data) analysis.
+    
     try:
         print(f"\n Received analysis request:")
         print(f"   Memo file: {memo_file.filename}")
@@ -57,14 +55,14 @@ async def vet_startup(
             csv_path = csv_temp.name
         
         try:
-            print("🔧 Processing files with Hybrid AI Analyzer...")
+            print(" Processing files with Hybrid AI Analyzer...")
             
             # Performing the hybrid analysis
             result = await analyzer.analyze_startup(memo_path, csv_path)
             
             print("\n Analysis completed successfully!")
             print("=" * 60)
-            print("📋 ANALYSIS RESULTS:")
+            print(" ANALYSIS RESULTS:")
             print("=" * 60)
             
             # Printing the analysis results in server terminal
@@ -100,7 +98,7 @@ async def vet_startup(
 
 @app.get("/health")
 async def health_check():
-    """Health check endpoint"""
+    # Health check endpoint
     return {"status": "healthy", "service": "Hybrid AI Analyst"}
 
 if __name__ == "__main__":

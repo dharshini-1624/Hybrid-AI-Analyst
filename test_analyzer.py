@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""
-Test script for the Hybrid AI Analyst system.
-This script tests the system with sample data to ensure all components work correctly.
-"""
+# Test script for the Hybrid AI Analyst system.
 
 import asyncio
 import os
@@ -15,7 +12,7 @@ sys.path.append(str(Path(__file__).parent))
 from hybrid_ai_analyst.analyzer import HybridAIAnalyzer
 
 async def test_analysis():
-    """Testing the complete analysis pipeline with sample data."""
+    # Testing the complete analysis pipeline with sample data
     
     print(" Testing Hybrid AI Analyst System")
     print("=" * 50)
@@ -34,10 +31,10 @@ async def test_analysis():
     
     print(f" Found sample data files")
     
-    # Check for API key
+    # Checking for API key
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key or api_key == "your_google_api_key_here":
-        print("⚠️  Google API key not set. Using fallback analysis mode.")
+        print("  Google API key not set. Using fallback analysis mode.")
         print("   Set GOOGLE_API_KEY environment variable for full LLM analysis.")
     
     try:
@@ -78,7 +75,7 @@ async def test_analysis():
         return False
 
 async def test_components():
-    """Testing individual components."""
+    # Testing individual components
     
     print("\n Testing Individual Components")
     print("=" * 40)
@@ -108,7 +105,7 @@ async def test_components():
         return False
 
 def main():
-    """Main test function."""
+    # Main test function
     
     print(" Hybrid AI Analyst - System Test")
     print("=" * 50)

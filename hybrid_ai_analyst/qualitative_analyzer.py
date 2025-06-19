@@ -10,15 +10,10 @@ import re
 load_dotenv()
 
 class QualitativeAnalyzer:
-    """
-    Qualitative analysis pipeline using RAG (Retrieval-Augmented Generation).
-    Processes unstructured text data to extract insights about company mission,
-    problem-solving approach, team strength, and potential risks.
-    """
     
     def __init__(self):
-        """Initialize the qualitative analyzer with RAG components"""
-        # Initialize Gemini API (optional)
+        # Initializing the qualitative analyzer with RAG components
+        # Initializing Gemini API
         api_key = os.getenv("GOOGLE_API_KEY")
         self.use_llm = api_key and api_key != "your_google_api_key_here"
         
@@ -47,17 +42,9 @@ class QualitativeAnalyzer:
             )
     
     def chunk_text(self, text: str, chunk_size: int = 500, overlap: int = 50) -> List[str]:
-        """
-        Spliting text into overlapping chunks for better RAG performance.
         
-        Args:
-            text: Input text to chunk
-            chunk_size: Maximum size of each chunk
-            overlap: Number of characters to overlap between chunks
-            
-        Returns:
-            List of text chunks
-        """
+        # Spliting text into overlapping chunks for better RAG performance
+        
         chunks = []
         start = 0
         
@@ -83,15 +70,9 @@ class QualitativeAnalyzer:
         return chunks
     
     async def analyze_memo(self, memo_path: str) -> str:
-        """
-        Analyzing a company memo using RAG pipeline.
         
-        Args:
-            memo_path: Path to the text file containing company memo
-            
-        Returns:
-            Qualitative summary of the company
-        """
+        # Analyzing a company memo using RAG pipeline.
+        
         try:
             # Read the memo file
             with open(memo_path, 'r', encoding='utf-8') as f:
@@ -135,16 +116,8 @@ class QualitativeAnalyzer:
             raise Exception(f"Qualitative analysis failed: {str(e)}")
     
     async def _generate_qualitative_summary(self, full_text: str, chunks: List[str]) -> str:
-        """
-        Generating qualitative summary using RAG-enhanced LLM call.
         
-        Args:
-            full_text: Complete memo text
-            chunks: Text chunks for context retrieval
-            
-        Returns:
-            Qualitative summary
-        """
+        #Generating qualitative summary using RAG-enhanced LLM call.
         # Using RAG to retrieve relevant chunks for the specific question
         query = "Based on the memo, what is the company's core mission, the problem it solves, and the strength of the team? Summarize the potential and risks."
         
@@ -195,15 +168,9 @@ class QualitativeAnalyzer:
             return self._fallback_qualitative_analysis(full_text)
     
     def _fallback_qualitative_analysis(self, text: str) -> str:
-        """
-        Fallback qualitative analysis if LLM is unavailable.
         
-        Args:
-            text: Company memo text
-            
-        Returns:
-            Basic qualitative summary
-        """
+        # Fallback qualitative analysis if LLM is unavailable.
+        
         # Simple keyword-based analysis
         keywords = {
             'mission': ['mission', 'vision', 'goal', 'purpose'],
@@ -243,7 +210,7 @@ class QualitativeAnalyzer:
         return summary
     
     async def get_status(self) -> Dict[str, Any]:
-        """Get the status of the qualitative analyzer"""
+        # Getting the status of the qualitative analyzer
         return {
             "status": "operational",
             "vector_store": "ChromaDB",
